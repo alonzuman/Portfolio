@@ -5,11 +5,11 @@ import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(theme => ({
   backButton: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
 
   backButtonIcon: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(.5)
   }
 }))
 

@@ -28,10 +28,21 @@ export const getStaticProps = async (context) => {
 }
 
 const useStyles = makeStyles(theme => ({
+  heroContainer: {
+    maxWidth: theme.breakpoints.values.md,
+    margin: 'auto',
+
+    [theme.breakpoints.up('md')]: {
+      paddingRight: theme.spacing(3),
+      paddingLeft: theme.spacing(3)
+    },
+  },
+
   hero: {
     height: 320,
     width: '100%',
-    objectFit: 'cover'
+    objectFit: 'cover',
+    maxWidth: theme.breakpoints.values.md,
   },
 
   avatar: {
@@ -39,6 +50,14 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(6),
     borderRadius: theme.spacing(6)
   },
+
+  title: {
+    marginTop: theme.spacing(1)
+  },
+
+  subtitle: {
+
+  }
 }))
 
 export default function BlogPost({ title, description, mainImage, author, _createdAt, body }) {
@@ -52,10 +71,15 @@ export default function BlogPost({ title, description, mainImage, author, _creat
           content: description
         }}
       />
-      <Container>
+      <Container style={{ minHeight: 0 }}>
         <BackButton />
+      </Container>
+      <div className={classes.heroContainer}>
         <SanityImage className={classes.hero} image={mainImage} />
-        <Typography variant='h1'>{title}</Typography>
+      </div>
+      <Container>
+        <Typography className={classes.title} variant='h1'>{title}</Typography>
+        <Typography component='h2' className={classes.subtitle} variant='body1' color='textSecondary'>{description}</Typography>
         <ListItem disableGutters>
           <ListItemAvatar>
             <SanityImage className={classes.avatar} image={author?.image} />
