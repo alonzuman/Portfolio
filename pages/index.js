@@ -44,11 +44,13 @@ export default function Home({ topBlogPosts, timeline, hero }) {
         links={<link rel="icon" href="/favicon.ico" />}
       />
       <Container>
-        <video src='HeroVideo.mp4' loop autoPlay muted playsinline style={{ width: '100%' }} controls={false} />
         <Box component='section' mt={8} mb={8}>
           <Typography className={classes.title} variant='h1' dangerouslySetInnerHTML={{ __html: hero.primary }} />
           <Typography variant='h4' color='textSecondary' component='h2' dangerouslySetInnerHTML={{ __html: hero.secondary }} />
         </Box>
+        <video loop autoPlay muted playsinline style={{ width: '100%' }} controls={false}>
+          <source src='HeroVideo.mp4' type='video/mp4' />
+        </video>
         <Section primary='My Most Recent Blog Posts 📖'>
           <BlogPosts data={topBlogPosts?.slice(0, 3)} />
         </Section>
