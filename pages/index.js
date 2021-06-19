@@ -11,6 +11,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: theme.spacing(1)
   },
+
+  subtitle: {
+    fontWeight: 400
+  }
 }))
 
 
@@ -46,7 +50,7 @@ export default function Home({ topBlogPosts, timeline, hero }) {
       <Container>
         <Box component='section' mt={8} mb={8}>
           <Typography className={classes.title} variant='h1' dangerouslySetInnerHTML={{ __html: hero.primary }} />
-          <Typography variant='h4' color='textSecondary' component='h2' dangerouslySetInnerHTML={{ __html: hero.secondary }} />
+          <Typography className={classes.subtitle} variant='h4' color='textSecondary' component='h2' dangerouslySetInnerHTML={{ __html: hero.secondary }} />
         </Box>
         {/* <video loop autoPlay muted playsInline style={{ width: '100%' }}>
           <source src='HeroVideo.mp4' type='video/mp4' />
