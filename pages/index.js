@@ -10,6 +10,23 @@ import API from '../src/API'
 const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: theme.spacing(1)
+  },
+
+  video: {
+    '&::-webkit-media-controls': {
+      display: 'none'
+    },
+
+    /* Could Use thise as well for Individual Controls */
+    '&::-webkit-media-controls-play-button': {},
+
+    '&::-webkit-media-controls-volume-slider': {},
+
+    '&::-webkit-media-controls-mute-button': {},
+
+    '&::-webkit-media-controls-timeline': {},
+
+    '&::-webkit-media-controls-current-time-display': {},
   }
 }))
 
@@ -48,7 +65,7 @@ export default function Home({ topBlogPosts, timeline, hero }) {
           <Typography className={classes.title} variant='h1' dangerouslySetInnerHTML={{ __html: hero.primary }} />
           <Typography variant='h4' color='textSecondary' component='h2' dangerouslySetInnerHTML={{ __html: hero.secondary }} />
         </Box>
-        <video loop autoPlay muted playsInline style={{ width: '100%' }}>
+        <video className={classes.video} loop autoPlay muted playsInline style={{ width: '100%' }}>
           <source src='HeroVideo.mp4' type='video/mp4' />
         </video>
         <Section primary='My Most Recent Blog Posts 📖'>
