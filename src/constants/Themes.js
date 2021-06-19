@@ -21,22 +21,22 @@ const shadows = [
 
 const typography = {
   h1: {
-    fontSize: '2.4rem',
+    fontSize: '2rem',
     fontWeight: 600
   },
 
   h2: {
-    fontSize: '1.8rem',
+    fontSize: '1.4rem',
     fontWeight: 600
   },
 
   h3: {
-    fontSize: '1.4rem',
+    fontSize: '1.2rem',
     fontWeight: 700
   },
 
   h4: {
-    fontSize: '1.2rem',
+    fontSize: '1rem',
     fontWeight: 400
   }
 }

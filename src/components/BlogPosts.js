@@ -7,6 +7,10 @@ import { formatPostDate } from "../utils";
 const useStyles = makeStyles(theme => ({
   image: {
     borderRadius: theme.spacing(1)
+  },
+
+  date: {
+    flexShrink: 0
   }
 }))
 
@@ -27,8 +31,8 @@ export default function BlogPosts({ data }) {
                 disableTypography
                 primary={(
                   <Box component='span' display='flex' alignItems='flex-start' justifyContent='space-between'>
-                    <Typography variant='h3'>{v?.title}</Typography>
-                    <Typography variant='subtitle2' color='textSecondary'>{formatPostDate(v?._createdAt)}</Typography>
+                    <Typography component='h3' variant='h4'>{v?.title}</Typography>
+                    <Typography className={classes.date} variant='subtitle2' color='textSecondary'>{formatPostDate(v?._createdAt)}</Typography>
                   </Box>
                 )}
                 secondary={(
