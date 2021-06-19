@@ -5,7 +5,7 @@ import Container from '../src/style-guide/Container'
 import Section from '../src/style-guide/Section'
 import BlogPosts from '../src/components/BlogPosts'
 import Timeline from '../src/components/Timeline'
-import { motion } from 'framer-motion'
+import API from '../src/API'
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -13,10 +13,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MOCK_API = 'https://jsonplaceholder.typicode.com/posts'
 
 export const getStaticProps = async () => {
-  const topBlogPosts = await fetch(MOCK_API).then(response => response.json())
+  const topBlogPosts = await API.Blog.getAllPosts()
 
   // TODO move them to a cms
   const hero = data.home.hero

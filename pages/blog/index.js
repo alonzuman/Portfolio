@@ -1,11 +1,10 @@
 import { Typography } from '@material-ui/core'
 import Container from "../../src/style-guide/Container";
 import BlogPosts from "../../src/components/BlogPosts";
-
-const MOCK_API = 'https://jsonplaceholder.typicode.com/posts'
+import API from '../../src/API';
 
 export const getStaticProps = async () => {
-  const posts = await fetch(MOCK_API).then(response => response.json())
+  const posts = await API.Blog.getAllPosts()
 
   return {
     props: {
@@ -14,7 +13,7 @@ export const getStaticProps = async () => {
   }
 }
 
-export default function index({ posts }) {
+export default function Blog({ posts }) {
   return (
     <Container>
       <Typography variant='h2' component='h1'>Blog</Typography>

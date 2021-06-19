@@ -4,7 +4,7 @@ import '../styles/globals.css'
 import { motion } from 'framer-motion'
 import useLocalTheme from '../src/hooks/useLocalTheme'
 
-function MyApp({ Component, pageProps, router }) {
+export default function MyApp({ Component, pageProps, router }) {
   const { theme } = useLocalTheme()
 
   return (
@@ -18,5 +18,3 @@ function MyApp({ Component, pageProps, router }) {
     </ThemeProvider>
   )
 }
-
-export default MyApp
