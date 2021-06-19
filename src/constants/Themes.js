@@ -1,69 +1,79 @@
 import { createMuiTheme } from "@material-ui/core";
 
-const palette = {
-  primary: {
-    dark: '#a31545',
-    main: '#ff548e',
-    light: '#ed4b82'
-  }
-}
-
-const shadows = [
-  'none',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-  'rgb(0 0 0 / 8%) 0px 1px 12px',
-]
-
-const typography = {
-  h1: {
-    fontSize: '2rem',
-    fontWeight: 600
+const base = {
+  palette: {
+    primary: {
+      dark: '#a31545',
+      main: '#ff548e',
+      light: '#ed4b82'
+    }
   },
 
-  h2: {
-    fontSize: '1.4rem',
-    fontWeight: 600
+  shadows: [
+    'none',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+    'rgb(0 0 0 / 8%) 0px 1px 12px',
+  ],
+
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 768,
+      lg: 1280,
+      xl: 1920
+    }
   },
 
-  h3: {
-    fontSize: '1.2rem',
-    fontWeight: 700
-  },
+  typography: {
+    h1: {
+      fontSize: '2rem',
+      fontWeight: 600
+    },
 
-  h4: {
-    fontSize: '1rem',
-    fontWeight: 500
-  },
+    h2: {
+      fontSize: '1.4rem',
+      fontWeight: 600
+    },
 
-  body1: {
-    fontSize: '1rem'
+    h3: {
+      fontSize: '1.2rem',
+      fontWeight: 700
+    },
+
+    h4: {
+      fontSize: '1rem',
+      fontWeight: 500
+    },
+
+    body1: {
+      fontSize: '1rem'
+    }
   }
 }
 
 export default {
   light: createMuiTheme({
+    ...base,
     palette: {
       type: 'light',
-      ...palette
+      ...base.palette
     },
-    shadows,
-    typography
   }),
 
   dark: createMuiTheme({
+    ...base,
     palette: {
       type: 'dark',
       background: {
         default: '#0e0e0e'
       },
-      ...palette
+      ...base.palette
     },
-    shadows,
-    typography
   })
 }
