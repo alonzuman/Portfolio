@@ -12,7 +12,7 @@ export default function Footer() {
   })
 
   return (
-    <Box bgcolor={palette.background.default} component='footer' py={2} px={2} display='flex' justifyContent='center'>
+    <Box bgcolor={palette.background.default} component='footer' pt={2} pb={4} px={2} display='flex' justifyContent='center'>
       <Box width='100%' maxWidth={breakpoints?.values?.md} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
         <SocialIcons />
         <Typography className={classes.text} variant='body1' color='primary'>Designed and built by Alon Zuman</Typography>
