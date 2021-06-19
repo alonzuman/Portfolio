@@ -36,7 +36,7 @@ export default function BlogPosts({ data }) {
                   </Box>
                 )}
                 secondary={(
-                  <Typography variant='body1' color='textSecondary'>
+                  <Typography noWrap variant='body1' color='textSecondary'>
                     {v?.description}
                   </Typography>
                 )}
