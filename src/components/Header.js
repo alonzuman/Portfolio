@@ -63,20 +63,23 @@ export default function Header() {
             </Link>
           </Box>
           <Box component='div' display='flex' alignItems='center' flex={1} justifyContent='flex-end'>
-            {isSmall && (
+            {!isSmall ? (
+              <>
+                {Constants.Navigation?.map(({ primary, href }) => (
+                  <Link href={href} key={primary}>
+                    <a>
+                      <DefaultButton size='small'>
+                        {primary}
+                      </DefaultButton>
+                    </a>
+                  </Link>
+                ))}
+              </>
+            ) : (
               <IconButton size='medium' onClick={toggleMenu}>
                 <HiOutlineMenuAlt4 size={24} />
               </IconButton>
             )}
-            {!isSmall && Constants.Navigation?.map(({ primary, href }) => (
-              <Link href={href} key={primary}>
-                <a>
-                  <DefaultButton size='small'>
-                    {primary}
-                  </DefaultButton>
-                </a>
-              </Link>
-            ))}
           </Box>
         </Box>
       </Box>
