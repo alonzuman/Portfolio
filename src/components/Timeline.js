@@ -1,6 +1,5 @@
 import { ListItemIcon, List, Divider, Typography, ListItem, ListItemText, makeStyles, Box } from "@material-ui/core";
 import Link from 'next/link'
-import { GiSpotedFlower } from 'react-icons/gi'
 import { BsFillTriangleFill } from 'react-icons/bs'
 
 const useStyles = makeStyles(theme => ({
@@ -16,6 +15,10 @@ const useStyles = makeStyles(theme => ({
   icon: {
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(.5)
+  },
+
+  year: {
+    color: theme.palette.primary.light
   }
 }))
 
@@ -27,7 +30,7 @@ export default function Timeline({ data }) {
       {data?.map(v => (
         <List key={v?.year} component='ul' className={classes.list}>
           <Box px={2}>
-            <Typography color='primary' variant='h3'>{v?.year}</Typography>
+            <Typography className={classes.year} variant='h3'>{v?.year}</Typography>
           </Box>
           {v?.sections?.map(section => {
             if (section?.href) return (

@@ -3,9 +3,9 @@ import { createMuiTheme } from "@material-ui/core";
 const base = {
   palette: {
     primary: {
-      dark: '#a31545',
+      dark: '#3a0013',
       main: '#ff548e',
-      light: '#ed4b82'
+      light: '#ff7eaa'
     }
   },
 
@@ -71,6 +71,7 @@ export default {
     palette: {
       type: 'dark',
       background: {
+        paper: '#151515',
         default: '#0e0e0e'
       },
       ...base.palette

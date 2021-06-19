@@ -10,3 +10,5 @@ export const truncateText = (input, max) => {
   }
   return input;
 };
+
+export const isEven = (num) => num % 2 === 0;

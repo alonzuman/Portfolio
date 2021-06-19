@@ -6,6 +6,7 @@ import Section from '../src/style-guide/Section'
 import BlogPosts from '../src/components/BlogPosts'
 import Timeline from '../src/components/Timeline'
 import API from '../src/API'
+import Projects from '../src/components/Projects'
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 export const getStaticProps = async () => {
   const topBlogPosts = await API.Blog.getAllPosts()
+  const projects = await API.Projects.getAllProjects()
 
   // TODO: move them to a cms
   const hero = data.home.hero
@@ -29,12 +31,13 @@ export const getStaticProps = async () => {
     props: {
       hero,
       topBlogPosts,
+      projects,
       timeline
     }
   }
 }
 
-export default function Home({ topBlogPosts, timeline, hero }) {
+export default function Home({ topBlogPosts, timeline, hero, projects }) {
   const classes = useStyles()
 
   return (
@@ -58,7 +61,10 @@ export default function Home({ topBlogPosts, timeline, hero }) {
         <Section primary='From the Blog'>
           <BlogPosts data={topBlogPosts?.slice(0, 3)} />
         </Section>
-        <Section primary='My Timeline'>
+        <Section primary='My Projects'>
+          <Projects data={projects} />
+        </Section>
+        <Section primary='My Journey'>
           <Timeline data={timeline} />
         </Section>
       </Container>
