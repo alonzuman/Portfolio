@@ -9,23 +9,26 @@ const data = {
       {
         year: 2021,
         sections: [
-          {
-            primary: 'Product Manager @JunoJourney',
-            secondary: 'Sint laboris ipsum occaecat ad proident officia non.'
-          },
+          // {
+          //   primary: 'Product Manager @JunoJourney',
+          //   secondary: '',
+          //   href: 'https://www.junojourney.com'
+          // },
           {
             primary: 'Junior Software Engineer @JunoJourney',
-            secondary: 'Incididunt cupidatat eiusmod magna commodo qui.'
-          },
-          {
-            primary: 'Software Engineer Intern @JunoJourney',
-            secondary: 'Enim incididunt reprehenderit nulla id eiusmod quis labore velit nulla ad do do proident.'
+            secondary: '',
+            href: 'https://www.junojourney.com'
           },
         ]
       },
       {
         year: 2020,
         sections: [
+          {
+            primary: 'Software Engineer Intern @JunoJourney',
+            secondary: '',
+            href: 'https://www.junojourney.com'
+          },
           {
             primary: 'Project manager & Web developer @Barbiz',
             secondary: `Worked with the client to design a new consumer product website (Shopify based); led the entire end to end project lifecycle. Built and customized the theme of the (Liquid framework) website. Provided web solutions based on the client's specific business needs for promotions, email automations, order fulfillment and delivery service integration.`,

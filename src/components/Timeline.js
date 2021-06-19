@@ -1,6 +1,6 @@
-import { ListItemIcon, List, Divider, Typography, ListItem, ListItemText, makeStyles } from "@material-ui/core";
-import CheckIcon from '@material-ui/icons/Check';
+import { ListItemIcon, List, Divider, Typography, ListItem, ListItemText, makeStyles, Box } from "@material-ui/core";
 import Link from 'next/link'
+import { GiSpotedFlower } from 'react-icons/gi'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -10,6 +10,10 @@ const useStyles = makeStyles(theme => ({
 
   divider: {
     marginTop: theme.spacing(2)
+  },
+
+  icon: {
+    marginLeft: theme.spacing(1)
   }
 }))
 
@@ -20,14 +24,16 @@ export default function Timeline({ data }) {
     <>
       {data?.map(v => (
         <List key={v?.year} component='ul' className={classes.list}>
-          <Typography color='primary' variant='h3'>{v?.year}</Typography>
+          <Box px={2}>
+            <Typography color='primary' variant='h3'>{v?.year}</Typography>
+          </Box>
           {v?.sections?.map(section => {
             if (section?.href) return (
               <Link href={section?.href} key={section?.primary}>
                 <a target='_blank'>
-                  <ListItem button key={section?.primary} disableGutters>
+                  <ListItem button key={section?.primary} alignItems='flex-start'>
                     <ListItemIcon>
-                      <CheckIcon size={16} />
+                      <GiSpotedFlower className={classes.icon} size={24} />
                     </ListItemIcon>
                     <ListItemText  {...section} />
                   </ListItem>
@@ -36,9 +42,9 @@ export default function Timeline({ data }) {
             )
 
             return (
-              <ListItem key={section?.primary} disableGutters>
+              <ListItem key={section?.primary} alignItems='flex-start'>
                 <ListItemIcon>
-                  <CheckIcon size={16} />
+                  <GiSpotedFlower className={classes.icon} size={24} />
                 </ListItemIcon>
                 <ListItemText  {...section} />
               </ListItem>

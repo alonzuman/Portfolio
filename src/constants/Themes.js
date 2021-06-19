@@ -3,7 +3,7 @@ import { createMuiTheme } from "@material-ui/core";
 const palette = {
   primary: {
     dark: '#a31545',
-    main: '#e91e63',
+    main: '#ff548e',
     light: '#ed4b82'
   }
 }
@@ -37,7 +37,11 @@ const typography = {
 
   h4: {
     fontSize: '1rem',
-    fontWeight: 400
+    fontWeight: 500
+  },
+
+  body1: {
+    fontSize: '1rem'
   }
 }
 

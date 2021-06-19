@@ -10,21 +10,21 @@ const useStyles = makeStyles(theme => ({
   },
 
   date: {
-    flexShrink: 0
+    flexShrink: 0,
+    marginLeft: theme.spacing(1)
   }
 }))
 
 export default function BlogPosts({ data }) {
   const classes = useStyles()
-  console.log(data);
 
   return (
-    <List disablePadding>
+    <List >
       {data?.map(v => (
         <Link href={`/blog/${v?.slug?.current}`} key={v?.slug?.current}>
           <a>
-            <ListItem disableRipple disableGutters button>
-              <Box mr={2} height={96} width={96}>
+            <ListItem button disableRipple disableGutters>
+              <Box mr={2} height={96} width={96} flexShrink={0}>
                 <SanityImage image={v?.mainImage} className={classes.image} />
               </Box>
               <ListItemText

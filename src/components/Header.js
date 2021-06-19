@@ -1,9 +1,11 @@
-import { Box, IconButton, makeStyles, useTheme } from "@material-ui/core";
+import { Box, makeStyles, useTheme } from "@material-ui/core";
 import Link from 'next/link'
+import useDarkMode from "use-dark-mode";
 import Constants from "../constants";
-import useLocalTheme from "../hooks/useLocalTheme";
 import useScrollPosition from "../hooks/useScrollPosition";
 import DefaultButton from '../style-guide/DefaultButton'
+import IconButton from '../style-guide/IconButton'
+import { HiSun, HiMoon } from 'react-icons/hi'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -20,7 +22,7 @@ export default function Header() {
   const classes = useStyles()
   const { shadows, breakpoints } = useTheme()
   const { scrollY } = useScrollPosition()
-  const { toggleTheme, theme } = useLocalTheme()
+  const { value, toggle } = useDarkMode(true)
 
   return (
     <Box
@@ -32,10 +34,10 @@ export default function Header() {
       className={classes.container}
       boxShadow={scrollY === 0 ? 'none' : shadows[2]}
     >
-      <Box width='100%' py={1} px={2} maxWidth={breakpoints.values.md} component='ul' display='flex' alignItems='center' justifyContent='center'>
-        {/* <IconButton onClick={toggleTheme}>
-          ☀️
-        </IconButton> */}
+      <Box margin={0} width='100%' py={1} px={2} maxWidth={breakpoints.values.md} component='ul' display='flex' alignItems='center' justifyContent='space-between'>
+        <IconButton size='medium' onClick={toggle}>
+          {value ? <HiMoon /> : <HiSun />}
+        </IconButton>
         <Box component='div' display='flex' alignItems='center'>
           {Constants.Navigation?.map(({ primary, href }) => (
             <Link href={href} key={primary}>
