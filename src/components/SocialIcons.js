@@ -2,6 +2,7 @@ import { Box, makeStyles } from '@material-ui/core'
 import { FaGithub, FaFacebookF, FaLinkedinIn } from 'react-icons/fa'
 import Link from 'next/link'
 import IconButton from '../style-guide/IconButton'
+import useClasses from '../hooks/useClasses'
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -10,11 +11,20 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function SocialIcons() {
-  const classes = useStyles()
+  const classes = useClasses({
+    link: {
+      listStyle: 'none'
+    },
+
+    container: {
+      padding: 0
+    }
+  })
+  // const classes = useStyles()
 
   return (
-    <Box display='flex' alignItems='center' justifyContent='space-between' component='ul'>
-      <Box mr={2} className={classes.link} component='li'>
+    <Box display='flex' alignItems='center' justifyContent='space-between' component='ul' className={classes.container}>
+      <Box mx={2} className={classes.link} component='li'>
         <Link href='https://www.linkedin.com/in/alon-zuman-018365193/'>
           <a target='_blank'>
             <IconButton size='medium'>
@@ -23,7 +33,7 @@ export default function SocialIcons() {
           </a>
         </Link>
       </Box>
-      <Box mr={2} className={classes.link} component='li'>
+      <Box mx={2} className={classes.link} component='li'>
         <Link href='https://www.facebook.com/alonzuman'>
           <a target='_blank'>
             <IconButton size='medium'>
@@ -32,7 +42,7 @@ export default function SocialIcons() {
           </a>
         </Link>
       </Box>
-      <Box className={classes.link} component='li'>
+      <Box mx={2} className={classes.link} component='li'>
         <Link href='https://www.github.com/alonzuman'>
           <a target='_blank'>
             <IconButton size='medium'>

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     '-webkit-backdrop-filter': 'blur(4.0px)',
     borderBottom: theme.palette.background.paper,
     zIndex: theme.zIndex.appBar,
-    transition: 'box-shadow .15s ease-in-out'
+    transition: 'box-shadow .15s ease-in-out, background-color .25s ease-in-out'
   }
 }))
 

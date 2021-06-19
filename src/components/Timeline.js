@@ -1,6 +1,7 @@
 import { ListItemIcon, List, Divider, Typography, ListItem, ListItemText, makeStyles, Box } from "@material-ui/core";
 import Link from 'next/link'
 import { GiSpotedFlower } from 'react-icons/gi'
+import { BsFillTriangleFill } from 'react-icons/bs'
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   icon: {
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(2)
   }
 }))
 
@@ -33,7 +34,7 @@ export default function Timeline({ data }) {
                 <a target='_blank'>
                   <ListItem button key={section?.primary} alignItems='flex-start'>
                     <ListItemIcon>
-                      <GiSpotedFlower className={classes.icon} size={24} />
+                      <BsFillTriangleFill className={classes.icon} size={12} />
                     </ListItemIcon>
                     <ListItemText  {...section} />
                   </ListItem>
@@ -44,7 +45,7 @@ export default function Timeline({ data }) {
             return (
               <ListItem key={section?.primary} alignItems='flex-start'>
                 <ListItemIcon>
-                  <GiSpotedFlower className={classes.icon} size={24} />
+                  <BsFillTriangleFill className={classes.icon} size={12} />
                 </ListItemIcon>
                 <ListItemText  {...section} />
               </ListItem>
