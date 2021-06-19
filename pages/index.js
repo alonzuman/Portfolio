@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 export const getStaticProps = async () => {
   const topBlogPosts = await API.Blog.getAllPosts()
 
-  // TODO move them to a cms
+  // TODO: move them to a cms
   const hero = data.home.hero
   const timeline = data.home.timeline
 
@@ -55,7 +55,7 @@ export default function Home({ topBlogPosts, timeline, hero }) {
         {/* <video loop autoPlay muted playsInline style={{ width: '100%' }}>
           <source src='HeroVideo.mp4' type='video/mp4' />
         </video> */}
-        <Section primary='From The Blog'>
+        <Section primary='From the Blog'>
           <BlogPosts data={topBlogPosts?.slice(0, 3)} />
         </Section>
         <Section primary='My Timeline'>
