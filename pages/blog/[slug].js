@@ -8,18 +8,26 @@ import { sanityClient } from '../../sanity';
 import Meta from '../../src/components/Meta';
 import BackButton from '../../src/style-guide/BackButton';
 
-export const getStaticPaths = async () => {
-  const posts = await API.Blog.getAllPosts()
-  const slugs = posts.map((post) => post.slug?.current)
-  const paths = slugs.map((slug) => ({ params: { slug: slug.toString() } }))
+// export const getStaticPaths = async () => {
+//   const posts = await API.Blog.getAllPosts()
+//   const slugs = posts.map((post) => post.slug?.current)
+//   const paths = slugs.map((slug) => ({ params: { slug: slug.toString() } }))
 
-  return {
-    paths,
-    fallback: false,
-  }
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
 
-export const getStaticProps = async (context) => {
+// export const getStaticProps = async (context) => {
+//   const post = await API.Blog.getPostBySlug(context.params.slug)
+
+//   return {
+//     props: post,
+//   }
+// }
+
+export const getServerSideProps = async (context) => {
   const post = await API.Blog.getPostBySlug(context.params.slug)
 
   return {
@@ -39,10 +47,19 @@ const useStyles = makeStyles(theme => ({
   },
 
   hero: {
-    height: 320,
     width: '100%',
     objectFit: 'cover',
     maxWidth: theme.breakpoints.values.md,
+  },
+
+  mainImageLabel: {
+    paddingRight: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
+
+    [theme.breakpoints.up('md')]: {
+      paddingRight: theme.spacing(0),
+      paddingLeft: theme.spacing(0)
+    },
   },
 
   avatar: {
@@ -52,7 +69,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   title: {
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(2)
   },
 
   subtitle: {
@@ -60,7 +77,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function BlogPost({ title, description, mainImage, author, _createdAt, body }) {
+export default function BlogPost({ title, description, mainImageLabel, mainImage, author, _createdAt, body }) {
   const classes = useStyles()
   return (
     <>
@@ -76,6 +93,7 @@ export default function BlogPost({ title, description, mainImage, author, _creat
       </Container>
       <div className={classes.heroContainer}>
         <SanityImage className={classes.hero} image={mainImage} />
+        <Typography className={classes.mainImageLabel} variant='subtitle2' color='textSecondary'>{mainImageLabel}</Typography>
       </div>
       <Container>
         <Typography className={classes.title} variant='h1'>{title}</Typography>

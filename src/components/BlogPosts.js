@@ -6,7 +6,8 @@ import { formatPostDate } from "../utils";
 
 const useStyles = makeStyles(theme => ({
   image: {
-    borderRadius: theme.spacing(1)
+    borderRadius: theme.spacing(1),
+    objectFit: 'cover'
   },
 
   date: {
