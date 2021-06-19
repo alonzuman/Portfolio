@@ -48,7 +48,7 @@ export default function Home({ topBlogPosts, timeline, hero }) {
           <Typography className={classes.title} variant='h1' dangerouslySetInnerHTML={{ __html: hero.primary }} />
           <Typography variant='h4' color='textSecondary' component='h2' dangerouslySetInnerHTML={{ __html: hero.secondary }} />
         </Box>
-        <video loop autoPlay muted playsInline style={{ width: '100%' }} controls={false}>
+        <video loop autoPlay muted playsInline style={{ width: '100%' }}>
           <source src='HeroVideo.mp4' type='video/mp4' />
         </video>
         <Section primary='My Most Recent Blog Posts 📖'>
